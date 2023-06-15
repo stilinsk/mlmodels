@@ -19,6 +19,14 @@ def predict_api():
     output = regmodel.predict(input_data)
     return jsonify(output[0])
 
+@app.route('/predict',methods=['POST'])
+def predict():
+    
+    data = [float(x) for x in request.form.values()]
+    input_data = np.array(data).reshape(1, -1)
+    output = regmodel.predict(input_data)[0]
+    return render_template("home.html", prediction_text="THE INSURANCE COST PREDICTION IS {}".format(output))
+
 
 
 

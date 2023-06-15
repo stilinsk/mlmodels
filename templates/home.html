@@ -1,4 +1,57 @@
-<h1>
+<!DOCTYPE html>
+<html>
 
-    hey my new  machine learning app
-</h1>
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <div class="login">
+    <h1>INSURANCE COST PRICE PREDICTION </h1>
+
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+      <label for="age">Age:</label>
+      <input type="text" name="age" required="required" /><br>
+      
+      <label for="sex">Sex:</label>
+      <select name="sex" required="required">
+        <option value="0">Male</option>
+        <option value="1">Female</option>
+      </select><br>
+      
+      <label for="bmi">BMI:</label>
+      <input type="text" name="bmi" required="required" /><br>
+      
+      <label for="children">Children:</label>
+      <input type="text" name="children" required="required" /><br>
+      
+      <label for="smoker">Smoker:</label>
+      <select name="smoker" required="required">
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select><br>
+      
+      <label for="region">Region:</label>
+      <select name="region" required="required">
+        <option value="0">Southeast</option>
+        <option value="1">Southwest</option>
+        <option value="2">Northeast</option>
+        <option value="3">Northwest</option>
+      </select><br>
+
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+    <br>
+    <br>
+  </div>
+  {{prediction_text}}
+</body>
+
+</html>
